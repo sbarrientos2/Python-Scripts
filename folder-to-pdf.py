@@ -17,8 +17,8 @@ output_filename = os.path.basename(image_folder) + '.pdf'
 # Create the full output file path using os.path.join()
 output_file_path = os.path.join(image_folder, output_filename)
 
-# Check if the output file already exists
-file_exists = os.path.exists(output_file_path)
+# Check if the output file already exists and is a regular file
+file_exists = os.path.isfile(output_file_path)
 
 # Create a PDF file and open it in write binary mode in the same directory as the input images
 pdf_file = open(output_file_path, 'wb')
