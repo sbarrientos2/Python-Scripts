@@ -9,8 +9,11 @@ image_folder = input('Path to folder: ')
 # Create a list of image filenames, sorted by name
 image_filenames = sorted([f for f in os.listdir(image_folder) if f.endswith('.jpg') or f.endswith('.png')])
 
+# Extract the last component of the image_folder path as the output filename
+output_filename = os.path.basename(image_folder) + '.pdf'
+
 # Create a PDF file and open it in write binary mode in the same directory as the input images
-pdf_file = open(os.path.join(image_folder, 'output.pdf'), 'wb')
+pdf_file = open(os.path.join(image_folder, output_filename), 'wb')
 
 # Create a PyPDF4 PdfFileMerger object
 pdf_merger = PdfFileMerger()
