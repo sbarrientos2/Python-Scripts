@@ -7,7 +7,7 @@ from PyPDF4 import PdfFileMerger
 
 while True:
     # Prompt the user to enter the path to the folder with the images
-    image_folder = input('Path to folder: ')
+    image_folder = input('Path to folder containing images: ')
     
     # Check if the path exists
     if os.path.exists(image_folder):
