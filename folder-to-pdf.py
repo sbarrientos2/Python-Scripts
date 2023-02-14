@@ -1,3 +1,5 @@
+# Script that turns all the images .jpg and .png that are inside a folder into a PDF file, images ordered by name 
+
 import io
 import os
 from PIL import Image
@@ -9,12 +11,17 @@ while True:
     
     # Check if the path exists
     if os.path.exists(image_folder):
-        break
+        # Check if the path contains any image files
+        image_filenames = [f for f in os.listdir(image_folder) if f.endswith('.jpg') or f.endswith('.png')]
+        if image_filenames:
+            break
+        else:
+            print("Path doesn't have any images. Please try again.")
     else:
         print("Invalid path. Please try again.")
 
 # Create a list of image filenames, sorted by name
-image_filenames = sorted([f for f in os.listdir(image_folder) if f.endswith('.jpg') or f.endswith('.png')])
+image_filenames = sorted(image_filenames)
 
 # Extract the last component of the image_folder path as the output filename
 output_filename = os.path.basename(image_folder) + '.pdf'
