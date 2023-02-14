@@ -16,9 +16,7 @@ output_filename = os.path.basename(image_folder) + '.pdf'
 output_file_path = os.path.join(image_folder, output_filename)
 
 # Check if the output file already exists
-if os.path.exists(output_file_path):
-    # Remove the existing file
-    os.remove(output_file_path)
+file_exists = os.path.exists(output_file_path)
 
 # Create a PDF file and open it in write binary mode in the same directory as the input images
 pdf_file = open(output_file_path, 'wb')
@@ -45,5 +43,8 @@ pdf_merger.write(pdf_file)
 # Close the PDF file
 pdf_file.close()
 
-# Print a message to the console to let the user know the file was created
-print(f'{output_filename} file created')
+# Print a message to the console to let the user know the file was created or updated
+if file_exists:
+    print(f'{output_filename} file updated')
+else:
+    print(f'{output_filename} file created')
