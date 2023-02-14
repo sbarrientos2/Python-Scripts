@@ -1,12 +1,17 @@
-# Script that turns all the images .jpg and .png that are inside a folder into a PDF file, images ordered by name 
-
 import io
 import os
 from PIL import Image
 from PyPDF4 import PdfFileMerger
 
-# Prompt the user to enter the path to the folder with the images
-image_folder = input('Path to folder: ')
+while True:
+    # Prompt the user to enter the path to the folder with the images
+    image_folder = input('Path to folder: ')
+    
+    # Check if the path exists
+    if os.path.exists(image_folder):
+        break
+    else:
+        print("Invalid path. Please try again.")
 
 # Create a list of image filenames, sorted by name
 image_filenames = sorted([f for f in os.listdir(image_folder) if f.endswith('.jpg') or f.endswith('.png')])
