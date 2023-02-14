@@ -1,3 +1,5 @@
+# Script that turns all the images .jpg and .png that are inside a folder into a PDF file, images ordered by name 
+
 import io
 import os
 from PIL import Image
